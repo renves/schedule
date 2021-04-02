@@ -85,5 +85,7 @@ class ScrapSpider(scrapy.Spider):
         if self.cont == 4:  
             if stock_market == 'US':
                 wk_us.append_rows(LIST_US) 
+                print('US append')
             elif stock_market == 'UK':
                 wk_uk.append_rows(LIST_UK)
+                print('UK append')
