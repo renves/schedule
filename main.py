@@ -6,7 +6,6 @@ from scrapy.http import Request
 import gspread
 import pandas as pd
 
-name = 'ScrapSpider'
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 gc = gspread.service_account(
@@ -83,8 +82,5 @@ class ScrapSpider(scrapy.Spider):
         LIST_UK = df_uk.values.tolist()
 
         if self.cont == 4:  
-            
             wk_us.append_rows(LIST_US) 
-            """elif stock_market == 'UK':
-                wk_uk.append_rows(LIST_UK)
-                print('UK append')"""
+        
