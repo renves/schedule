@@ -12,7 +12,7 @@ scheduler.add_job(process.crawl, 'cron', args=[ScrapSpiderUK], hour=10)
 scheduler.add_job(process.crawl, 'cron', args=[
                   ScrapSpiderUK], hour=12, minute=30)
 
-scheduler.add_job(process.crawl, 'cron', args=[ScrapSpiderUS], hour=11, timezone='EDC')
+scheduler.add_job(process.crawl, 'cron', args=[ScrapSpiderUS], hour=22, timezone='US/Eastern')
 scheduler.add_job(process.crawl, 'cron', args=[ScrapSpiderUS], hour=14)
 scheduler.add_job(process.crawl, 'cron', args=[
                   ScrapSpiderUS], hour=16, minute=30)
