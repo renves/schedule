@@ -1,13 +1,21 @@
 
 from scrapy.crawler import CrawlerProcess
-
 from apscheduler.schedulers.twisted import TwistedScheduler
-
-from main import ScrapSpider
+from us import ScrapSpiderUS
+from uk import ScrapSpiderUK
 
 process = CrawlerProcess()
 scheduler = TwistedScheduler()
-scheduler.add_job(process.crawl, 'cron', args=[ScrapSpider], hour=20, minute=30)
-#scheduler.add_job(process.crawl, 'interval', args=[ScrapSpider], seconds=60)
+
+scheduler.add_job(process.crawl, 'cron', args=[ScrapSpiderUK], hour=7)
+scheduler.add_job(process.crawl, 'cron', args=[ScrapSpiderUK], hour=10)
+scheduler.add_job(process.crawl, 'cron', args=[
+                  ScrapSpiderUK], hour=12, minute=30)
+
+scheduler.add_job(process.crawl, 'cron', args=[ScrapSpiderUS], hour=11)
+scheduler.add_job(process.crawl, 'cron', args=[ScrapSpiderUS], hour=14)
+scheduler.add_job(process.crawl, 'cron', args=[
+                  ScrapSpiderUS], hour=16, minute=30)
+
 scheduler.start()
 process.start(False)
