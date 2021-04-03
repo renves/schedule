@@ -7,7 +7,7 @@ from uk import ScrapSpiderUK
 process = CrawlerProcess()
 scheduler = TwistedScheduler()
 
-scheduler.add_job(process.crawl, 'cron', args=[ScrapSpiderUK], hour=7)
+scheduler.add_job(process.crawl, 'cron', args=[ScrapSpiderUK], hour=7, timezone='UTC')
 scheduler.add_job(process.crawl, 'cron', args=[ScrapSpiderUK], hour=10)
 scheduler.add_job(process.crawl, 'cron', args=[
                   ScrapSpiderUK], hour=12, minute=30)
